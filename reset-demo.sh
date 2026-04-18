@@ -2,7 +2,7 @@
 set -e
 
 REPO="diegovelasquezweb/a11y-test-react"
-BRANCH="feat/expand-site-with-contact-and-services"
+BRANCH="feat/update-components"
 
 cd "$(dirname "$0")"
 
@@ -11,17 +11,17 @@ gh pr list --repo "$REPO" --state open --json number --jq '.[].number' | while r
   gh pr close "$n" --repo "$REPO" 2>/dev/null && echo "  closed #$n"
 done
 
-echo "→ Deleting remote branches (except main)..."
+echo "→ Deleting remote branches (except master)..."
 git fetch --prune 2>/dev/null
-git branch -r | grep "origin/" | grep -v "origin/main\|origin/HEAD" | sed 's|origin/||' | while read b; do
+git branch -r | grep "origin/" | grep -v "origin/master\|origin/HEAD" | sed 's|origin/||' | while read b; do
   git push origin --delete "$b" 2>/dev/null && echo "  deleted remote: $b"
 done
 
-echo "→ Switching to main..."
-git checkout main
+echo "→ Switching to master..."
+git checkout master
 
-echo "→ Deleting local branches (except main)..."
-git branch | grep -v "main" | while read b; do
+echo "→ Deleting local branches (except master)..."
+git branch | grep -v "master" | while read b; do
   git branch -D "$b" 2>/dev/null && echo "  deleted local: $b"
 done
 
