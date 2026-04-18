@@ -17,25 +17,29 @@ export default function Services() {
       {/* Hover-only handler, no keyboard equivalent */}
       <div
         onMouseOver={(e) => showTooltip(e.currentTarget)}
+        onFocus={(e) => showTooltip(e.currentTarget)}
+        onMouseOut={(e) => hideTooltip(e.currentTarget)}
+        onBlur={(e) => hideTooltip(e.currentTarget)}
         className="inline-block p-2 bg-gray-200 mb-4"
+        tabIndex={0}
       >
         Hover for info
       </div>
 
       {/* accesskey shortcut */}
-      <button accessKey="s" type="button" className="mb-4 p-2 bg-blue-500 text-white">Save</button>
+      <button type="button" className="mb-4 p-2 bg-blue-500 text-white">Save</button>
 
       {/* aria-hidden link */}
-      <a href="/info" aria-hidden={true} className="mb-4 block">More info</a>
+      <a href="/info" className="mb-4 block">More info</a>
 
       {/* Button with no accessible text */}
-      <button type="button" className="mb-4 p-2 bg-gray-300">
+      <button type="button" className="mb-4 p-2 bg-gray-300" aria-label="Close">
         <span aria-hidden={true}>×</span>
       </button>
 
       {/* Duplicate IDs */}
-      <section id="info" className="mb-4"><p>Section one</p></section>
-      <section id="info" className="mb-4"><p>Section two</p></section>
+      <section id="info-services" className="mb-4"><p>Section one</p></section>
+      <section id="info-details" className="mb-4"><p>Section two</p></section>
     </div>
   );
 }
