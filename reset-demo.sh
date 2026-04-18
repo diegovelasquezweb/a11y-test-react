@@ -176,7 +176,7 @@ TSX
 
 echo "→ Committing..."
 git add app/page.tsx app/about/page.tsx app/services/page.tsx app/contact/page.tsx
-git commit -m "feat: expand site with contact form, services, and about pages"
+git commit -m "feat: update components"
 
 echo "→ Pushing..."
 git push origin "$BRANCH"
