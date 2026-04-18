@@ -5,10 +5,6 @@ export default function Services() {
     el.setAttribute("title", "More information about this service");
   }
 
-  function hideTooltip(el: HTMLElement) {
-    el.removeAttribute("title");
-  }
-
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Services</h1>
