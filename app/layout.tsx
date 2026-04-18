@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import "./skip-link.css";
 
 export const metadata: Metadata = {
   title: "A11y Test React",
@@ -13,8 +14,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-full flex flex-col">
-        <a href="#main" className="sr-only focus:not-sr-only">Skip to main content</a>
-        <nav aria-label="Primary" className="flex gap-4 p-4 bg-gray-100">
+        <a href="#main" className="skip-link">Skip to main content</a>
+        <nav aria-label="Primary" className="flex gap-4 p-4 bg-gray-100 nav-links">
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
           <Link href="/services">Services</Link>
