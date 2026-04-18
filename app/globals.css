@@ -29,3 +29,22 @@ body {
 .bg-blue-500 {
   background-color: #0052cc !important;
 }
+
+/* Fix color contrast for .text-[#ccc] — #cccccc on #ffffff = 1.6:1 (fails 4.5:1 requirement) */
+/* Darkened to #595959 for 7.1:1 contrast ratio */
+.text-\[\#ccc\] {
+  color: #595959;
+}
+
+/* Utility class for screen-reader-only text (visually hidden but announced) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
