@@ -24,3 +24,39 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Skip link styling */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: #000;
+  color: #fff;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Visually hidden label for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Target size for interactive elements */
+.link-target-size a {
+  display: inline-block;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0.5rem 0.25rem;
+}

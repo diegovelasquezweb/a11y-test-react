@@ -13,13 +13,16 @@ export default function Services() {
       {/* Hover-only handler, no keyboard equivalent */}
       <div
         onMouseOver={(e) => showTooltip(e.currentTarget)}
+        onFocus={(e) => showTooltip(e.currentTarget)}
+        onBlur={(e) => e.currentTarget.removeAttribute("title")}
+        tabIndex={0}
         className="inline-block p-2 bg-gray-200 mb-4"
       >
         Hover for info
       </div>
 
       {/* accesskey shortcut */}
-      <button accessKey="s" type="button" className="mb-4 p-2 bg-blue-500 text-white">Save</button>
+      <button type="button" className="mb-4 p-2 bg-blue-500 text-white">Save</button>
 
       {/* aria-hidden link */}
       <a href="/info" aria-hidden={true} className="mb-4 block">More info</a>
