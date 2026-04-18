@@ -4,7 +4,6 @@ export default function Home() {
       <h1 className="text-2xl font-bold mb-4">Welcome</h1>
       <p className="mb-4">This is the home page of the a11y test site.</p>
 
-      {/* Missing alt */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/hero.png" alt="Team working on accessibility" className="mb-4" />
 
