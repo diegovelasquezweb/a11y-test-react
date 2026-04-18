@@ -11,6 +11,11 @@ gh pr list --repo "$REPO" --state open --json number --jq '.[].number' | while r
   gh pr close "$n" --repo "$REPO" 2>/dev/null && echo "  closed #$n"
 done
 
+echo "→ Closing open Issues..."
+gh issue list --repo "$REPO" --state open --json number --jq '.[].number' | while read n; do
+  gh issue close "$n" --repo "$REPO" 2>/dev/null && echo "  closed issue #$n"
+done
+
 echo "→ Deleting remote branches (except master)..."
 git fetch --prune 2>/dev/null
 git branch -r | grep "origin/" | grep -v "origin/master\|origin/HEAD" | sed 's|origin/||' | while read b; do
@@ -180,6 +185,14 @@ git commit -m "feat: update components"
 
 echo "→ Pushing..."
 git push origin "$BRANCH"
+
+echo "→ Creating fresh Issue..."
+ISSUE_URL=$(gh issue create \
+  --repo "$REPO" \
+  --title "a11y main" \
+  --body "Accessibility audit for the main branch." \
+  2>/dev/null)
+echo "  created: $ISSUE_URL"
 
 echo ""
 echo "✓ Done. Create your PR at:"
