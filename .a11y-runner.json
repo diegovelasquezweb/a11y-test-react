@@ -1,7 +1,0 @@
-{
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "startCommand": "npm start -- -p 4173",
-  "healthUrl": "http://127.0.0.1:4173",
-  "readyTimeoutMs": 120000
-}
