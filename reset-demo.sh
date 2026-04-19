@@ -24,6 +24,7 @@ done
 
 echo "→ Switching to master..."
 git checkout master
+git pull origin master
 
 echo "→ Deleting local branches (except master)..."
 git branch | grep -v "master" | while read b; do
