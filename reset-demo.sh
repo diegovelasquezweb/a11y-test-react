@@ -155,10 +155,9 @@ export default function Contact() {
       {/* Empty heading */}
       <h2 className="mb-4"></h2>
 
-      {/* divs inside ul */}
       <ul className="mb-4">
-        <div>Phone: 555-0100</div>
-        <div>Email: hello@example.com</div>
+        <li>Phone: 555-0100</li>
+        <li>Email: hello@example.com</li>
       </ul>
 
       <form className="flex flex-col gap-3 max-w-md">
