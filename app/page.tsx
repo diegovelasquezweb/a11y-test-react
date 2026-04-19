@@ -19,7 +19,7 @@ export default function Home() {
       <p className="mb-4">We build accessible experiences for everyone.</p>
 
       {/* Empty link */}
-      <a href="/more"></a>
+      <a href="/more">Learn more about our services</a>
 
       {/* Invalid lang */}
       <p lang="xx" className="mb-4">Some content in an unrecognized language.</p>
