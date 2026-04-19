@@ -25,7 +25,7 @@ export default function Services() {
       <a href="/info" aria-hidden={true} className="mb-4 block">More info</a>
 
       {/* Button with no accessible text */}
-      <button type="button" className="mb-4 p-2 bg-gray-300">
+      <button type="button" className="mb-4 p-2 bg-gray-300" aria-label="Close">
         <span aria-hidden={true}>×</span>
       </button>
 
