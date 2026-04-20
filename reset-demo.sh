@@ -26,6 +26,14 @@ echo "→ Switching to master..."
 git checkout master
 git pull origin master
 
+echo "→ Checking for stale demo commits in master..."
+STALE=$(git log master --no-merges --format="%H|%s" | awk -F'|' '$2=="feat: update components"{print $1; exit}')
+if [ -n "$STALE" ] && git diff --quiet "$STALE" master -- app/; then
+  echo "  found stale demo state ($STALE), reverting..."
+  git revert --no-edit "$STALE"
+  git push origin master
+fi
+
 echo "→ Deleting local branches (except master)..."
 git branch | grep -v "master" | while read b; do
   git branch -D "$b" 2>/dev/null && echo "  deleted local: $b"
