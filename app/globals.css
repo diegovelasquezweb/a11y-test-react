@@ -48,3 +48,8 @@ body {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Screen-reader text for link warnings */
+a .sr-only {
+  display: inline;
+}
