@@ -7,14 +7,14 @@ export default function About() {
       {/* Link opens in new tab without warning */}
       <p className="mb-4">
         Read more on the{" "}
-        <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C WAI website <span className="sr-only">(opens in new tab)</span></a>.
+        <a href="https://www.w3.org/WAI/" target="_blank">W3C WAI website</a>.
       </p>
 
       {/* div as button — no keyboard support */}
       <div role="button" className="mb-4 cursor-pointer p-2 bg-gray-200">Click me</div>
 
       {/* iframe without title */}
-      <iframe title="Example website embed" src="https://example.com" width="300" height="200" className="mb-4"></iframe>
+      <iframe src="https://example.com" width="300" height="200" className="mb-4"></iframe>
 
       {/* table without headers */}
       <table className="mb-4">
