@@ -9,7 +9,7 @@ export default function Home() {
 
       {/* Missing alt on decorative image */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/decorative-banner.png" alt="" className="mb-4" />
+      <img src="/decorative-banner.png" className="mb-4" />
 
       {/* Low contrast text */}
       <p className="text-[#ccc] mb-4">This text has insufficient color contrast.</p>
@@ -19,10 +19,10 @@ export default function Home() {
       <p className="mb-4">We build accessible experiences for everyone.</p>
 
       {/* Empty link */}
-      <a href="/more">Read more about our services</a>
+      <a href="/more"></a>
 
       {/* Invalid lang */}
-      <p lang="en" className="mb-4">Some content in an unrecognized language.</p>
+      <p lang="xx" className="mb-4">Some content in an unrecognized language.</p>
     </div>
   );
 }
