@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-# PAT-only demo: 18 code pattern (PAT-*) findings, no DOM-only errors.
+# PAT-only demo: 22 code pattern (PAT-*) findings, no DOM-only errors.
 # Covers every rule in a11y-engine/assets/remediation/code-patterns.mjs.
 # Run with: /a11y-audit source
 
@@ -73,11 +73,15 @@ export default function Home() {
       <h1 className="text-2xl font-bold mb-4">Welcome</h1>
       <p className="mb-4">PAT-only test page for recently added code pattern rules.</p>
 
+      <label className="block mb-1">Full name</label>
+
       <img src="/hero.png" className="mb-4" />
 
       <input type="text" placeholder="Your name" className="border rounded p-2 mb-4" />
 
       <input type="email" placeholder="Your email" className="border rounded p-2 mb-4" />
+
+      <input onPaste={(e) => e.preventDefault()} className="border rounded p-2 mb-4" />
 
       <div onMouseOver={handleHover} className="inline-block p-2 bg-gray-200 mb-4">
         Hover for info
@@ -97,6 +101,42 @@ export default function Home() {
         Lock orientation
       </button>
     </div>
+  );
+}
+TSX
+
+echo "→ Writing layout (viewport override for zoom-disabled)..."
+
+cat >app/layout.tsx <<'TSX'
+import type { Metadata } from "next";
+import Link from "next/link";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "A11y Test React",
+  description: "Demo site with intentional accessibility errors",
+};
+
+export const viewport = { userScalable: false };
+
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en">
+      <body className="min-h-full flex flex-col">
+        <a href="#main" className="sr-only focus:not-sr-only focus:outline-2 focus:outline-offset-2 focus:outline-blue-600" aria-label="Skip to main content">Skip to main content</a>
+        <nav aria-label="Primary" className="flex gap-4 p-4 bg-gray-100">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/contact">Contact</Link>
+        </nav>
+        <main id="main" className="flex-1 p-6">
+          {children}
+        </main>
+      </body>
+    </html>
   );
 }
 TSX
@@ -125,11 +165,15 @@ cat >>app/globals.css <<'CSS'
     transform: rotate(360deg);
   }
 }
+
+.demo-slide-in {
+  transition: left 0.3s ease;
+}
 CSS
 
 echo "→ Committing..."
-git add app/page.tsx app/globals.css
-git commit -m "feat: pat-only demo — 18 code pattern findings"
+git add app/page.tsx app/layout.tsx app/globals.css
+git commit -m "feat: pat-only demo — 22 code pattern findings"
 
 echo "→ Pushing..."
 git push origin "$BRANCH"
@@ -138,7 +182,7 @@ echo "→ Creating fresh Issue..."
 ISSUE_URL=$(gh issue create \
 	--repo "$REPO" \
 	--title "a11y pat-only" \
-	--body "Accessibility audit covering only source code pattern (PAT-*) findings — 18 rules total, matching every entry in a11y-engine's code-patterns.mjs. Run \`/a11y-audit source\` to test the recently added/updated patterns without DOM-only noise." \
+	--body "Accessibility audit covering only source code pattern (PAT-*) findings — 22 rules total, matching every entry in a11y-engine's code-patterns.mjs. Run \`/a11y-audit source\` to test the recently added/updated patterns without DOM-only noise." \
 	2>/dev/null)
 echo "  created: $ISSUE_URL"
 
