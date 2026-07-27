@@ -1,28 +1,59 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 export default function Home() {
+  const router = useRouter();
+
+  function goToServices() {
+    router.push("/services");
+  }
+
+  function handleLockOrientation() {
+    screen.orientation.lock("portrait").catch(() => {});
+  }
+
+  function handleHover() {
+    console.log("hover");
+  }
+
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Welcome</h1>
-      <p className="mb-4">This is the home page of the a11y test site.</p>
+      <p className="mb-4">PAT-only test page for recently added code pattern rules.</p>
 
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/hero.png" alt="Team working on accessibility" className="mb-4" />
+      {/* 1 */}
+      <img src="/hero.png" className="mb-4" />
 
-      {/* Missing alt on decorative image */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/decorative-banner.png" alt="" className="mb-4" />
+      {/* 2 */}
+      <input type="text" placeholder="Your name" className="border rounded p-2 mb-4" />
 
-      {/* Low contrast text */}
-      <p className="text-[#ccc] mb-4">This text has insufficient color contrast.</p>
+      {/* 3 */}
+      <input type="email" placeholder="Your email" className="border rounded p-2 mb-4" />
 
-      {/* Skipped heading level */}
-      <h3 className="text-lg font-semibold mb-2">Our Mission</h3>
-      <p className="mb-4">We build accessible experiences for everyone.</p>
+      {/* 4 */}
+      <div onMouseOver={handleHover} className="inline-block p-2 bg-gray-200 mb-4">
+        Hover for info
+      </div>
 
-      {/* Empty link */}
-      <a href="/more">Read more about our services</a>
+      {/* 5 */}
+      <button accessKey="s" type="button" className="mb-4 p-2 bg-blue-500 text-white">Save</button>
 
-      {/* Invalid lang */}
-      <p lang="en" className="mb-4">Some content in an unrecognized language.</p>
+      {/* 6 */}
+      <div onClick={goToServices} className="mb-4 cursor-pointer p-2 bg-gray-200">Go to services</div>
+
+      {/* 7 */}
+      <button className="mb-4 p-2 bg-gray-300"><svg className="w-4 h-4" viewBox="0 0 24 24" /></button>
+
+      {/* 8 */}
+      <a href="https://www.w3.org/WAI/" target="_blank" className="mb-4 block">W3C WAI website</a>
+
+      {/* 9 */}
+      <div className="toast mb-4">Message sent!</div>
+
+      <button type="button" onClick={handleLockOrientation} className="mb-4 p-2 bg-gray-300">
+        Lock orientation
+      </button>
     </div>
   );
 }
