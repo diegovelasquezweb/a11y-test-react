@@ -48,3 +48,24 @@ body {
   white-space: nowrap;
   border-width: 0;
 }
+
+.demo-btn {
+  outline: none;
+}
+
+.legacy-focus:focus {
+  outline: 2px solid blue;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+@keyframes spin-demo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
