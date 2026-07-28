@@ -74,9 +74,10 @@ export default function Home() {
       <p className="mb-4">PAT-only test page for recently added code pattern rules.</p>
 
       <label className="block mb-1">Full name</label>
-      <input type="text" className="border rounded p-2 mb-4" />
 
       <img src="/hero.png" className="mb-4" />
+
+      <input type="text" className="border rounded p-2 mb-4" />
 
       <input type="text" placeholder="Your name" className="border rounded p-2 mb-4" />
 
