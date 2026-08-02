@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-export default function Home() {
+export default function PatDemoPage() {
   const router = useRouter();
 
   function goToServices() {
@@ -19,8 +19,8 @@ export default function Home() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Welcome</h1>
-      <p className="mb-4">PAT-only test page for recently added code pattern rules.</p>
+      <h1 className="text-2xl font-bold mb-4">PAT Demo</h1>
+      <p className="mb-4">PAT-only test page for source code pattern rules.</p>
 
       <label className="block mb-1">Full name</label>
 
