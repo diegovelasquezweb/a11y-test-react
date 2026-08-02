@@ -24,7 +24,7 @@ export default function Home() {
 
       <label className="block mb-1">Full name</label>
 
-      <img src="/hero.png" className="mb-4" />
+      <img src="/hero.png" alt="Hero banner" className="mb-4" />
 
       <input type="text" className="border rounded p-2 mb-4" />
 
