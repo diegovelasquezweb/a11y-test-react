@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "Demo site with intentional accessibility errors",
 };
 
+export const viewport = { userScalable: false };
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
