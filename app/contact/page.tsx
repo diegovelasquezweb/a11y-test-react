@@ -23,12 +23,12 @@ export default function Contact() {
         </select>
 
         {/* Inputs with visible labels properly associated */}
-        <label id="name-label" htmlFor="name" className="font-semibold">Your name</label>
-        <input id="name" type="text" placeholder="Your name" className="border rounded p-2" aria-labelledby="name-label" />
-        <label id="email-label" htmlFor="email" className="font-semibold">Your email</label>
-        <input id="email" type="email" placeholder="Your email" className="border rounded p-2" aria-labelledby="email-label" />
-        <label id="message-label" htmlFor="message" className="font-semibold">Your message</label>
-        <textarea id="message" placeholder="Your message" className="border rounded p-2" aria-labelledby="message-label" />
+        <label htmlFor="name" className="font-semibold">Your name</label>
+        <input id="name" type="text" placeholder="Your name" className="border rounded p-2" autoComplete="name" />
+        <label htmlFor="email" className="font-semibold">Your email</label>
+        <input id="email" type="email" placeholder="Your email" className="border rounded p-2" autoComplete="email" spellCheck={false} />
+        <label htmlFor="message" className="font-semibold">Your message</label>
+        <textarea id="message" placeholder="Your message" className="border rounded p-2" />
         <button type="submit" className="bg-blue-600 text-white rounded p-2">Send</button>
       </form>
     </div>

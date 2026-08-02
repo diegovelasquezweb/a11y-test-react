@@ -7,7 +7,7 @@ export default function About() {
       {/* Link opens in new tab without warning */}
       <p className="mb-4">
         Read more on the{" "}
-        <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C WAI website <span className="sr-only">(opens in new tab)</span></a>.
+        <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer" aria-label="W3C WAI website (opens in new tab)">W3C WAI website</a>.
       </p>
 
       {/* div as button — no keyboard support */}

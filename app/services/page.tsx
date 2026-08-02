@@ -13,6 +13,7 @@ export default function Services() {
       {/* Hover-only handler, no keyboard equivalent */}
       <div
         onMouseOver={(e) => showTooltip(e.currentTarget)}
+        onMouseLeave={(e) => e.currentTarget.removeAttribute("title")}
         onFocus={(e) => showTooltip(e.currentTarget)}
         onBlur={(e) => e.currentTarget.removeAttribute("title")}
         tabIndex={0}

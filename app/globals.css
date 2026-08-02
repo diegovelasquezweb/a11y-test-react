@@ -49,27 +49,30 @@ body {
   border-width: 0;
 }
 
-.demo-btn {
-  outline: none;
+.demo-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
-.legacy-focus:focus {
+.legacy-focus:focus-visible {
   outline: 2px solid blue;
 }
 
 .card-hover {
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-@keyframes spin-demo {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes spin-demo {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 }
 
 .demo-slide-in {
-  transition: left 0.3s ease;
+  transition: transform 0.3s ease;
 }
