@@ -1,56 +1,83 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-
 export default function Home() {
-  const router = useRouter();
-
-  function goToServices() {
-    router.push("/services");
-  }
-
-  function handleLockOrientation() {
-    screen.orientation.lock("portrait").catch(() => {});
-  }
-
-  function handleHover() {
-    console.log("hover");
-  }
-
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Welcome</h1>
-      <p className="mb-4">PAT-only test page for recently added code pattern rules.</p>
+    <main className="mx-auto max-w-3xl space-y-8 p-8">
+      <h1 className="text-2xl font-bold">ARIA Findings Demo</h1>
 
-      <label className="block mb-1">Full name</label>
+      {/* aria-allowed-attr: aria-expanded no está permitido en role="img" */}
+      <img
+        src="https://placehold.co/200x120"
+        alt="Sample photo"
+        aria-expanded="true"
+        className="rounded"
+      />
 
-      <img src="/hero.png" className="mb-4" />
+      {/* aria-allowed-role: role="button" no está permitido en <footer> */}
+      <footer role="button" className="rounded bg-slate-100 p-4">
+        Site footer
+      </footer>
 
-      <input type="text" className="border rounded p-2 mb-4" />
+      {/* aria-braille-equivalent: aria-braillelabel sin un aria-label equivalente */}
+      <button aria-braillelabel="⠃⠗⠁⠊⠇⠇⠑" className="rounded bg-blue-600 px-4 py-2 text-white">
+        Braille
+      </button>
 
-      <input type="text" placeholder="Your name" className="border rounded p-2 mb-4" />
+      {/* aria-command-name: role="button" sin nombre accesible */}
+      <span role="button" tabIndex={0} className="inline-block cursor-pointer rounded bg-slate-200 px-3 py-1"></span>
 
-      <input type="email" placeholder="Your email" className="border rounded p-2 mb-4" />
+      {/* aria-conditional-attr: aria-checked="mixed" no está permitido en role radio */}
+      <input type="radio" name="opt" aria-checked="mixed" />
 
-      <input onPaste={(e) => e.preventDefault()} className="border rounded p-2 mb-4" />
-
-      <div onMouseOver={handleHover} className="inline-block p-2 bg-gray-200 mb-4">
-        Hover for info
+      {/* aria-deprecated-role: role="directory" está deprecado en ARIA */}
+      <div role="directory" className="rounded border p-2">
+        Legacy directory listing
       </div>
 
-      <button accessKey="s" type="button" className="mb-4 p-2 bg-blue-500 text-white">Save</button>
+      {/* aria-dialog-name: role="dialog" sin nombre accesible */}
+      <div role="dialog" className="rounded border p-4">
+        <p>Dialog content without a label.</p>
+      </div>
 
-      <div onClick={goToServices} className="mb-4 cursor-pointer p-2 bg-gray-200">Go to services</div>
+      {/* aria-hidden-focus: elemento enfocable dentro de un contenedor aria-hidden="true" */}
+      <div aria-hidden="true" className="rounded border p-2">
+        <button className="rounded bg-slate-200 px-3 py-1">Hidden but focusable</button>
+      </div>
 
-      <button className="mb-4 p-2 bg-gray-300"><svg className="w-4 h-4" viewBox="0 0 24 24" /></button>
+      {/* aria-input-field-name: campo de texto sin nombre accesible */}
+      <input type="text" className="rounded border px-2 py-1" />
 
-      <a href="https://www.w3.org/WAI/" target="_blank" className="mb-4 block">W3C WAI website</a>
+      {/* aria-meter-name: role="meter" sin nombre accesible */}
+      <div
+        role="meter"
+        aria-valuenow={50}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        className="h-3 w-full rounded bg-slate-200"
+      ></div>
 
-      <div className="toast mb-4">Message sent!</div>
+      {/* aria-progressbar-name: role="progressbar" sin nombre accesible */}
+      <div
+        role="progressbar"
+        aria-valuenow={30}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        className="h-3 w-full rounded bg-slate-200"
+      ></div>
 
-      <button type="button" onClick={handleLockOrientation} className="mb-4 p-2 bg-gray-300">
-        Lock orientation
-      </button>
-    </div>
+      {/* aria-prohibited-attr: aria-label prohibido en <caption> */}
+      <table className="w-full border">
+        <caption aria-label="Sales data">Sales</caption>
+        <tbody>
+          <tr>
+            <td>Q1</td>
+            <td>100</td>
+          </tr>
+        </tbody>
+      </table>
+
+      {/* presentation-role-conflict: role="presentation" junto a aria-label global */}
+      <div role="presentation" aria-label="Decorative but still named" className="rounded border p-2">
+        Decorative content
+      </div>
+    </main>
   );
 }
