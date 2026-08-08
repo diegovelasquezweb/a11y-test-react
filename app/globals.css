@@ -30,9 +30,13 @@ body {
   background-color: #0052cc !important;
 }
 
-/* Fix color contrast for .text-[#ccc] — #cccccc on #ffffff = 1.6:1 (fails 4.5:1 requirement) */
-/* Darkened to #595959 for 7.1:1 contrast ratio */
+/* Fix color contrast for .text-[#ccc] and .text-[#ddd] */
+/* .text-[#ddd] (#dddddd on #ffffff = 1.35:1) darkened to #595959 for 7.1:1 contrast ratio */
 .text-\[\#ccc\] {
+  color: #595959;
+}
+
+.text-\[\#ddd\] {
   color: #595959;
 }
 
@@ -47,4 +51,20 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Custom spacing class for text with adjustable letter-spacing and line-height */
+.custom-spacing {
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+/* Announcement class for prominent notices */
+.announcement {
+  font-weight: bold;
+}
+
+/* News ticker class for alert text */
+.news-ticker {
+  font-style: italic;
 }
