@@ -50,27 +50,42 @@ body {
 }
 
 /* PAT-DEMO-PATTERNS-START */
-.demo-btn {
-  outline: none;
+.demo-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
-.legacy-focus:focus {
+.legacy-focus:focus-visible {
   outline: 2px solid blue;
 }
 
-.card-hover {
-  transition: all 0.3s ease;
+@media (prefers-reduced-motion: no-preference) {
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @keyframes spin-demo {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .demo-slide-in {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .demo-slide-in.is-open {
+    transform: translateX(0);
+  }
 }
 
-@keyframes spin-demo {
-  from {
-    transform: rotate(0deg);
+@media (prefers-reduced-motion: reduce) {
+  .card-hover,
+  .demo-slide-in {
+    transition: none;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.demo-slide-in {
-  transition: left 0.3s ease;
 }
