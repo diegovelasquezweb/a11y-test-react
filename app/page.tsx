@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 // document-title: an empty title on this route overrides the layout's
 // default <title>, leaving the document without a descriptive title.
 export const metadata: Metadata = {
-  title: "",
+  title: "Keyboard & Interaction Demo — A11y Test",
 };
 
 export default function Home() {
@@ -14,10 +14,10 @@ export default function Home() {
       {/* accesskeys: two controls share the same accessKey value ("s"),
           which is ambiguous for keyboard users relying on access keys. */}
       <section className="space-x-4">
-        <button accessKey="s" className="border px-3 py-1">
+        <button className="border px-3 py-1">
           Save draft
         </button>
-        <button accessKey="s" className="border px-3 py-1">
+        <button className="border px-3 py-1">
           Submit form
         </button>
       </section>
@@ -61,9 +61,9 @@ export default function Home() {
       {/* nested-interactive: a link nested inside a button creates two
           interactive elements collapsed into one focus stop, which breaks
           keyboard and assistive-tech expectations. */}
-      <button className="border px-3 py-1">
-        Click <a href="/settings">this link</a>
-      </button>
+      <div className="border px-3 py-1 inline-block">
+        <a href="/settings">Click this link</a>
+      </div>
 
       {/* scrollable-region-focusable: an overflow container with content
           that overflows its bounds but no tabIndex, so keyboard users
@@ -92,7 +92,7 @@ export default function Home() {
 
       {/* button-name: an icon-only button with no text content and no
           accessible name (no aria-label, no aria-labelledby). */}
-      <button className="p-2">
+      <button className="p-2" aria-label="Help">
         <svg width="16" height="16" aria-hidden="true">
           <circle cx="8" cy="8" r="8" />
         </svg>
@@ -112,8 +112,8 @@ export default function Home() {
 
       {/* link-name: an icon-only link with no text content and no
           accessible name. */}
-      <a href="/settings">
-        <svg width="16" height="16" aria-hidden="true">
+      <a href="/settings" aria-label="Settings">
+        <svg width="16" height="16" role="img" aria-label="Settings">
           <rect width="16" height="16" />
         </svg>
       </a>
@@ -121,7 +121,7 @@ export default function Home() {
       {/* summary-name: a <details>/<summary> disclosure widget whose
           <summary> has no accessible name. */}
       <details>
-        <summary></summary>
+        <summary>Additional information</summary>
         <p>Hidden content revealed on toggle.</p>
       </details>
     </main>
