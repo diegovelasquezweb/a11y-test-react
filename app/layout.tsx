@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Demo site with intentional accessibility errors",
 };
 
-export const viewport = { userScalable: false };
+export const viewport = { width: "device-width", initialScale: 1, userScalable: true };
 
 export default function RootLayout({
   children,

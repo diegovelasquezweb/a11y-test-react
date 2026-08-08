@@ -7,8 +7,8 @@ export default function About() {
       {/* div as button — no keyboard support */}
       <div role="button" className="mb-4 cursor-pointer p-2 bg-gray-200">Click me</div>
 
-      {/* iframe without title */}
-      <iframe src="https://example.com" width="300" height="200" className="mb-4"></iframe>
+      {/* iframe with title */}
+      <iframe title="Example website embed" src="https://example.com" width="300" height="200" className="mb-4"></iframe>
 
       {/* table without headers */}
       <table className="mb-4">
