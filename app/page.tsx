@@ -36,7 +36,7 @@ export default function Home() {
       <div role="img" className="h-16 w-16 bg-slate-300" />
 
       {/* svg-img-alt: <svg role="img"> with no <title> or aria-label */}
-      <svg role="img" viewBox="0 0 24 24" className="h-8 w-8">
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-8 w-8">
         <circle cx="12" cy="12" r="10" />
       </svg>
 
