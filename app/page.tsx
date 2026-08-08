@@ -9,18 +9,18 @@ export default function Home() {
       </div>
 
       {/* landmark-one-main / landmark-no-duplicate-main / landmark-unique: two main landmarks on the same page */}
-      <main className="mx-auto max-w-3xl space-y-6 p-8">
+      <main id="main-content" className="mx-auto max-w-3xl space-y-6 p-8">
         <h1 className="text-2xl font-bold">Structure &amp; Semantics Demo</h1>
 
         {/* heading-order: jumps from h1 straight to h4, skipping h2 and h3 */}
-        <h4 className="text-base font-semibold">Recent updates</h4>
+        <h2 className="text-base font-semibold">Recent updates</h2>
         <p>This section skips two heading levels.</p>
 
         {/* duplicate-id: two elements sharing the same id attribute */}
-        <button id="cta" className="rounded bg-blue-600 px-4 py-2 text-white">
+        <button id="cta-primary" className="rounded bg-blue-600 px-4 py-2 text-white">
           Get started
         </button>
-        <button id="cta" className="rounded bg-blue-600 px-4 py-2 text-white">
+        <button id="cta-secondary" className="rounded bg-blue-600 px-4 py-2 text-white">
           Learn more
         </button>
       </main>

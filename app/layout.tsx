@@ -12,6 +12,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
         <div>
           <a href="/">Home</a> <a href="/records">Records</a> <a href="/archive">Archive</a>
         </div>
