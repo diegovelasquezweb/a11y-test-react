@@ -3,8 +3,7 @@ export default function Contact() {
     <div>
       <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
 
-      {/* Empty heading */}
-      <h2 className="mb-4"></h2>
+
 
       <ul className="mb-4">
         <li>Phone: 555-0100</li>
