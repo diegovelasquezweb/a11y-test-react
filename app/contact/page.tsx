@@ -4,7 +4,7 @@ export default function Contact() {
       <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
 
       {/* Empty heading */}
-      <h2 className="mb-4"></h2>
+      <h2 className="mb-4">Contact Information</h2>
 
       <ul className="mb-4">
         <li>Phone: 555-0100</li>
@@ -13,7 +13,8 @@ export default function Contact() {
 
       <form className="flex flex-col gap-3 max-w-md">
         {/* Select without label */}
-        <select className="border rounded p-2">
+        <label htmlFor="topic-select" className="block mb-1">Topic</label>
+        <select id="topic-select" className="border rounded p-2">
           <option value="">Choose a topic</option>
           <option value="support">Support</option>
           <option value="sales">Sales</option>
