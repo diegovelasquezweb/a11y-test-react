@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 // meta-viewport / meta-viewport-large: userScalable: false renders
 // <meta name="viewport" content="...user-scalable=no">, disabling pinch-zoom.
-export const viewport = { userScalable: false };
+export const viewport = { width: 'device-width', initialScale: 1 };
 
 // html-lang-valid + valid-lang: "xx-invalid" is not a real BCP 47 primary
 // language subtag.
@@ -35,8 +35,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <a href="#main" className="sr-only focus:not-sr-only focus:outline-2 focus:outline-offset-2 focus:outline-blue-600" aria-label="Skip to main content">Skip to main content</a>
         <nav aria-label="Primary" className="flex gap-4 p-4 bg-gray-100">
-          <Link href="/">Home</Link>
-          <Link href="/media">Media</Link>
+          <Link href="/" className="block px-3 py-2 text-blue-600 hover:text-blue-800 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-blue-600">Home</Link>
+          <Link href="/media" className="block px-3 py-2 text-blue-600 hover:text-blue-800 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-blue-600">Media</Link>
         </nav>
         <main id="main" className="flex-1 p-6">
           {children}
