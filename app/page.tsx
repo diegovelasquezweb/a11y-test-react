@@ -7,7 +7,8 @@ export default function Home() {
       <img
         src="https://placehold.co/200x120"
         alt="Sample photo"
-        aria-expanded="true"
+        width={200}
+        height={120}
         className="rounded"
       />
 
@@ -22,13 +23,16 @@ export default function Home() {
       </button>
 
       {/* aria-command-name: role="button" sin nombre accesible */}
-      <span role="button" tabIndex={0} className="inline-block cursor-pointer rounded bg-slate-200 px-3 py-1"></span>
+      <span role="button" tabIndex={0} className="inline-block cursor-pointer rounded bg-slate-200 px-3 py-1">Action</span>
 
       {/* aria-conditional-attr: aria-checked="mixed" no está permitido en role radio */}
-      <input type="radio" name="opt" aria-checked="mixed" />
+      <label htmlFor="radio-opt" className="inline-flex items-center gap-2">
+        <input id="radio-opt" type="radio" name="opt" className="rounded border px-2" />
+        <span>Option</span>
+      </label>
 
       {/* aria-deprecated-role: role="directory" está deprecado en ARIA */}
-      <div role="directory" className="rounded border p-2">
+      <div className="rounded border p-2">
         Legacy directory listing
       </div>
 
@@ -43,7 +47,8 @@ export default function Home() {
       </div>
 
       {/* aria-input-field-name: campo de texto sin nombre accesible */}
-      <input type="text" className="rounded border px-2 py-1" />
+      <label htmlFor="text-input" className="block text-sm font-medium mb-1">Text input</label>
+      <input id="text-input" type="text" className="rounded border px-2 py-1" />
 
       {/* aria-meter-name: role="meter" sin nombre accesible */}
       <div
@@ -51,6 +56,7 @@ export default function Home() {
         aria-valuenow={50}
         aria-valuemin={0}
         aria-valuemax={100}
+        aria-label="Memory usage"
         className="h-3 w-full rounded bg-slate-200"
       ></div>
 
@@ -60,6 +66,7 @@ export default function Home() {
         aria-valuenow={30}
         aria-valuemin={0}
         aria-valuemax={100}
+        aria-label="File upload progress"
         className="h-3 w-full rounded bg-slate-200"
       ></div>
 

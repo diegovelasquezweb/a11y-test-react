@@ -47,7 +47,7 @@ export default function PatternsPage() {
       </span>
 
       {/* aria-toggle-field-name: role="switch" sin nombre accesible */}
-      <button role="switch" aria-checked="false" className="rounded border px-3 py-1"></button>
+      <button role="switch" aria-checked="false" aria-label="Enable notifications" className="rounded border px-3 py-1"></button>
 
       {/* aria-tooltip-name: role="tooltip" sin nombre accesible */}
       <div role="tooltip" className="rounded border bg-slate-100 p-1"></div>
