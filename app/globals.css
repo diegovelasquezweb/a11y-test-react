@@ -48,3 +48,14 @@ body {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Fix target size: ensure touch targets are at least 24×24 CSS pixels */
+button,
+a,
+[role="button"] {
+  min-width: 24px;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
