@@ -1,56 +1,41 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-
 export default function Home() {
-  const router = useRouter();
-
-  function goToServices() {
-    router.push("/services");
-  }
-
-  function handleLockOrientation() {
-    screen.orientation.lock("portrait").catch(() => {});
-  }
-
-  function handleHover() {
-    console.log("hover");
-  }
-
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Welcome</h1>
-      <p className="mb-4">PAT-only test page for recently added code pattern rules.</p>
-
-      <label className="block mb-1">Full name</label>
-
-      <img src="/hero.png" className="mb-4" />
-
-      <input type="text" className="border rounded p-2 mb-4" />
-
-      <input type="text" placeholder="Your name" className="border rounded p-2 mb-4" />
-
-      <input type="email" placeholder="Your email" className="border rounded p-2 mb-4" />
-
-      <input onPaste={(e) => e.preventDefault()} className="border rounded p-2 mb-4" />
-
-      <div onMouseOver={handleHover} className="inline-block p-2 bg-gray-200 mb-4">
-        Hover for info
+    <>
+      {/* landmark-banner-is-top-level: header nested inside a plain div, not a direct child of body */}
+      <div className="border-b p-4">
+        <header className="flex items-center justify-between">
+          <span className="font-bold">A11y Structure Demo</span>
+        </header>
       </div>
 
-      <button accessKey="s" type="button" className="mb-4 p-2 bg-blue-500 text-white">Save</button>
+      {/* landmark-one-main / landmark-no-duplicate-main / landmark-unique: two main landmarks on the same page */}
+      <main className="mx-auto max-w-3xl space-y-6 p-8">
+        <h1 className="text-2xl font-bold">Structure &amp; Semantics Demo</h1>
 
-      <div onClick={goToServices} className="mb-4 cursor-pointer p-2 bg-gray-200">Go to services</div>
+        {/* heading-order: jumps from h1 straight to h4, skipping h2 and h3 */}
+        <h4 className="text-base font-semibold">Recent updates</h4>
+        <p>This section skips two heading levels.</p>
 
-      <button className="mb-4 p-2 bg-gray-300"><svg className="w-4 h-4" viewBox="0 0 24 24" /></button>
+        {/* duplicate-id: two elements sharing the same id attribute */}
+        <button id="cta" className="rounded bg-blue-600 px-4 py-2 text-white">
+          Get started
+        </button>
+        <button id="cta" className="rounded bg-blue-600 px-4 py-2 text-white">
+          Learn more
+        </button>
+      </main>
 
-      <a href="https://www.w3.org/WAI/" target="_blank" className="mb-4 block">W3C WAI website</a>
+      {/* landmark-main-is-top-level: a second main landmark nested inside a div, not a direct child of body */}
+      <div className="p-8">
+        <main className="rounded border p-4">
+          <p>Duplicate, nested main landmark.</p>
+        </main>
+      </div>
 
-      <div className="toast mb-4">Message sent!</div>
-
-      <button type="button" onClick={handleLockOrientation} className="mb-4 p-2 bg-gray-300">
-        Lock orientation
-      </button>
-    </div>
+      {/* region: content that lives directly under the page root, outside any landmark */}
+      <p className="p-4 text-sm text-gray-500">
+        Loose paragraph rendered outside any landmark region.
+      </p>
+    </>
   );
 }

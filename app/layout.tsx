@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -7,21 +6,16 @@ export const metadata: Metadata = {
   description: "Demo site with intentional accessibility errors",
 };
 
-export const viewport = { userScalable: false };
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="min-h-full flex flex-col">
-        <a href="#main" className="sr-only focus:not-sr-only focus:outline-2 focus:outline-offset-2 focus:outline-blue-600" aria-label="Skip to main content">Skip to main content</a>
-        <nav aria-label="Primary" className="flex gap-4 p-4 bg-gray-100">
-          <Link href="/">Home</Link>
-        </nav>
-        <main id="main" className="flex-1 p-6">
-          {children}
-        </main>
+      <body>
+        <div>
+          <a href="/">Home</a> <a href="/records">Records</a> <a href="/archive">Archive</a>
+        </div>
+        {children}
       </body>
     </html>
   );
