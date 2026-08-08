@@ -48,3 +48,9 @@ body {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Spaced text class: letter-spacing and line-height without !important */
+.spaced-text {
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
