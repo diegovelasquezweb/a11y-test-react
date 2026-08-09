@@ -30,10 +30,16 @@ body {
   background-color: #0052cc !important;
 }
 
-/* Fix color contrast for .text-[#ccc] — #cccccc on #ffffff = 1.6:1 (fails 4.5:1 requirement) */
+/* Fix color contrast for .text-[#ddd] — #dddddd on #ffffff = 1.35:1 (fails 4.5:1 requirement) */
 /* Darkened to #595959 for 7.1:1 contrast ratio */
-.text-\[\#ccc\] {
+.text-\[\#ddd\] {
   color: #595959;
+}
+
+/* Fix text spacing to allow user overrides per WCAG 1.4.12 */
+.spaced-text {
+  letter-spacing: 0.5px;
+  line-height: 1;
 }
 
 /* Utility class for screen-reader-only text (visually hidden but announced) */
