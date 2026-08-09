@@ -48,3 +48,9 @@ body {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Fix for avoid-inline-spacing: move text spacing to stylesheet */
+.spaced-text {
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
