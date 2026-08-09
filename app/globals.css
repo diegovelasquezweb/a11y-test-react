@@ -48,3 +48,19 @@ body {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Custom spacing class for text with letter-spacing and line-height */
+.custom-spacing {
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+/* Announcement class for non-blinking text */
+.announcement {
+  /* no animation by default */
+}
+
+/* News ticker class for non-scrolling text */
+.news-ticker {
+  /* static by default */
+}

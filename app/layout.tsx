@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 // meta-viewport / meta-viewport-large: userScalable: false renders
 // <meta name="viewport" content="...user-scalable=no">, disabling pinch-zoom.
-export const viewport = { userScalable: false };
+export const viewport = { userScalable: true };
 
 // html-lang-valid + valid-lang: "xx-invalid" is not a real BCP 47 primary
 // language subtag.
@@ -26,11 +26,9 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="xx-invalid" {...{ "xml:lang": "es" }}>
+    <html lang="en" {...{ "xml:lang": "en" }}>
       <head>
-        {/* meta-refresh: automatic page refresh via meta http-equiv, forces
-            a context change the user cannot control or cancel */}
-        <meta httpEquiv="refresh" content="30" />
+
       </head>
       <body className="min-h-full flex flex-col">
         <a href="#main" className="sr-only focus:not-sr-only focus:outline-2 focus:outline-offset-2 focus:outline-blue-600" aria-label="Skip to main content">Skip to main content</a>
