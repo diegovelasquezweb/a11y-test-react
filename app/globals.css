@@ -48,3 +48,61 @@ body {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Text spacing moved from inline to stylesheet for user override (WCAG 1.4.12) */
+.text-with-custom-spacing {
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+/* Announcement text styling (replaces deprecated <blink>) */
+.announcement {
+  /* Static by default */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .announcement {
+    animation: fade 2s ease-in-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement {
+    animation: none;
+  }
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* News ticker text styling (replaces deprecated <marquee>) */
+.news-ticker {
+  /* Static by default */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .news-ticker {
+    animation: scroll-text 10s linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-ticker {
+    animation: none;
+  }
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
